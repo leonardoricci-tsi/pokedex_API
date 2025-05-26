@@ -1,0 +1,77 @@
+<div class="structure">
+  <!-- Logo + Título -->
+  <div class="d-flex flex-column align-items-center mt-0 mb-4">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pokémon_logo.svg" alt="Pokémon Logo"
+      style="max-width: 450px;" />
+    <h2 class="logo-text mt-3">A sua Pokédex pessoal</h2>
+  </div>
+
+
+  <div class="container">
+    <!-- Busca e filtro -->
+    <div class="row mb-4">
+      <div class="col-md-6 mx-auto">
+        <input type="text" class="form-control mb-2" placeholder="Buscar Pokémon" [(ngModel)]="termoBusca"
+          (input)="filtrarPokemons()" />
+
+        <select class="form-select" [(ngModel)]="tipoSelecionado" (change)="filtrarPokemons()">
+          <option value="">Todos os Tipos</option>
+          <option *ngFor="let tipo of todosTipos" [value]="tipo">{{ tipo | titlecase }}</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="row">
+      <div *ngFor="let poke of pokemonsFiltrados" class="col-6 col-sm-4 col-md-3 mb-4 d-flex justify-content-center">
+        <div class="card-container" (click)="virarCard(poke)" [class.flipped]="poke.flipped">
+          <div class="card-inner">
+
+            <!-- Frente -->
+            <div class="card-front text-center p-3" [ngStyle]="{ 'background': getGradientePorTipos(poke.types) }">
+              <img [src]="getPokemonImageUrl(poke.id)" style="width: 100px; height: 100px; object-fit: contain;"
+                alt="{{ poke.name }}">
+              <h5 class="card-title text-capitalize mt-2 text-white">{{ poke.name }}</h5>
+              <div class="d-flex justify-content-center gap-1 mt-2">
+                <span *ngFor="let tipo of poke.types" class="badge text-light text-capitalize px-2 py-1"
+                  [ngStyle]="{ 'background': getGradientePorTipos(poke.types) }">
+                  {{ tipo }}
+                </span>
+              </div>
+              <div class="mt-2 text-white" style="font-size: 0.6rem; font-family: 'Press Start 2P';">
+                <p class="mb-1" style="font-size: 0.6rem; font-family: 'Press Start 2P'; color: #eee;">
+                  Altura: {{ poke.height / 10 }} m
+                </p>
+                <p class="mb-0" style="font-size: 0.6rem; font-family: 'Press Start 2P'; color: #eee;">
+                  Peso: {{ poke.weight / 10 }} kg
+                </p>
+              </div>
+
+            </div>
+
+            <!-- Verso -->
+            <div class="card-back p-3 d-flex flex-column justify-content-center align-items-center bg-light text-dark">
+              <h6 class="mb-2">Status</h6>
+              <div *ngFor="let stat of poke.stats" class="w-100 mb-1 text-start">
+                <strong class="text-uppercase">{{ stat.stat.name }}:</strong> {{ stat.base_stat }}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paginação -->
+    <div class="d-flex justify-content-center gap-3 mt-3 mb-0 pb-0">
+      <button class="btn btn-primary" (click)="paginaAnterior()" [disabled]="paginaAtual === 1">
+        Anterior
+      </button>
+      <span class="align-self-center">Página {{ paginaAtual }} de {{ totalPaginas }}</span>
+      <button class="btn btn-primary" (click)="proximaPagina()" [disabled]="paginaAtual === totalPaginas">
+        Próxima
+      </button>
+    </div>
+
+  </div>
+</div>

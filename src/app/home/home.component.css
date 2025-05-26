@@ -1,0 +1,137 @@
+/* Reset básico */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Estrutura principal */
+.structure {
+  background: radial-gradient(circle at top center, #1a237e, #0d0d0d);
+  min-height: 100vh;
+  color: white;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+  width: 300px;
+  height: auto;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* Título abaixo da logo */
+.logo-text {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.75rem;
+  color: #faf7f7;
+  text-align: center;
+  text-shadow: 1px 1px #fff;
+}
+
+/* Campo de busca */
+input.form-control {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid #1976d2;
+  text-transform: uppercase;
+  background-color: #fff;
+}
+
+select.form-select {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid #1976d2;
+  text-transform: uppercase;
+  background-color: #fff;
+}
+
+input.form-control:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.2);
+}
+
+/* Flip Card */
+.card-container {
+  perspective: 1000px;
+  width: 100%;
+  max-width: 220px;
+  height: 260px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.card-container.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  backface-visibility: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card-front {
+  color: white;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+/* Hover card */
+.card {
+  border: none;
+  border-radius: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.card-image {
+  max-height: 120px;
+  object-fit: contain;
+}
+
+.badge {
+  border: 2px solid white;
+  box-shadow: 0 0 4px white;
+  font-size: 8px;
+}
+
+
+.card-title,
+.card-back,
+.card-front,
+.card-back h6,
+.card-back strong {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  text-transform: uppercase;
+  text-emphasis-color: black;
+}
