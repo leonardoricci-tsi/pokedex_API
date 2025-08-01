@@ -1,3 +1,59 @@
+# 🔍 Pokédex API
+
+Este projeto é uma **aplicação web interativa** construída com **Angular**, que consome dados da [PokéAPI](https://pokeapi.co/) para exibir informações detalhadas sobre diferentes Pokémon.
+
+🔗 **Acesse online:** [pokedex-api-lake.vercel.app](https://pokedex-api-lake.vercel.app/)
+
+---
+
+## 🎯 Objetivo do Projeto
+
+O objetivo principal foi colocar em prática conhecimentos de Angular, consumo de APIs REST e componentização. A Pokédex simula a navegação entre Pokémon, exibindo dados como nome, imagem, tipo e ID.
+
+---
+
+## ✨ Funcionalidades
+
+- 🔄 Consumo de dados dinâmicos da PokéAPI
+- 🔍 Pesquisa de Pokémon por nome ou número
+- 📱 Interface responsiva
+- 📦 Componentes reutilizáveis
+- ⚡ Navegação rápida e carregamento eficiente
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- **Angular 16+**
+- **TypeScript**
+- **HTML5 + SCSS**
+- **PokéAPI** – [https://pokeapi.co](https://pokeapi.co)
+- **Vercel** – Deploy da aplicação
+
+---
+
+## 📚 Aprendizados
+
+- Criação de componentes e serviços no Angular
+- Comunicação com APIs REST utilizando `HttpClient`
+- Rotas e gerenciamento de estado leve
+- Boas práticas de estrutura e performance com Angular CLI
+- Deploy de aplicações Angular na Vercel
+
+---
+
+## 👨‍💻 Autor
+
+**Leonardo Oliveira**  
+Desenvolvedor em formação | Explorando o ecossistema Angular e APIs públicas  
+[GitHub](https://github.com/leonardoricci-tsi)
+
+---
+
+
+
+
+
 # PokedexAPI
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
